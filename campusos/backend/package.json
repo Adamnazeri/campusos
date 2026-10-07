@@ -1,0 +1,14 @@
+{
+  "name": "campusos-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "REST API untuk CampusOS (pengurusan sekolah) — tanpa dependensi npm, Node 22.5+",
+  "engines": { "node": ">=22.5" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/server.js",
+    "dev": "node --watch --env-file-if-exists=.env --disable-warning=ExperimentalWarning src/server.js",
+    "seed": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning scripts/seed.js",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.js"
+  }
+}

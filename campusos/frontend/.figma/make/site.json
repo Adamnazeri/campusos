@@ -1,0 +1,10 @@
+{
+  "description": "Streamline educational operations with a comprehensive management platform that centralizes class schedules, attendance, assignments, and teacher workloads.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
