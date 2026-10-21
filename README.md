@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- ANIMATED HEADER BANNER -->
-<img src="https://capsule-render.vercel.app/api?type=venom&amp;color=0:0f172a,50:1e3a8a,100:2563eb&amp;height=240&amp;section=header&amp;text=CampusOS&amp;fontSize=72&amp;fontColor=ffffff&amp;animation=fadeIn&amp;fontAlignY=38&amp;desc=Enterprise-Grade%20School%20%26%20Campus%20Management%20Operating%20System&amp;descAlignY=60&amp;descSize=18" width="100%" alt="CampusOS Banner" />
+<img src="docs/banner.svg" width="100%" alt="CampusOS - Enterprise-Grade School and Campus Management Operating System" />
 
 <!-- ANIMATED TYPING SUBTITLE -->
 <a href="https://github.com/Adamnazeri/campusos">
@@ -74,8 +74,8 @@
 
 | | | |
 | :---: | :---: | :---: |
-| 📊 **Analytics Dashboard**<br/>Live campus KPIs & attendance metrics | 👨‍🎓 **Student Management**<br/>Enrollment, profiles & archiving | 👩‍🏫 **Staff & HR Directory**<br/>Department-aware staff records |
-| 📅 **Timetable & Rooms**<br/>Schedules and room allocation | 📝 **Attendance & Grading**<br/>Mark, grade, audit & unlock | 🔐 **Encryption & Backups**<br/>Encrypted snapshots, one-click trigger |
+| 📊 **Analytics Dashboard**<br/>Live campus KPIs &amp; attendance metrics | 👨‍🎓 **Student Management**<br/>Enrollment, profiles &amp; archiving | 👩‍🏫 **Staff &amp; HR Directory**<br/>Department-aware staff records |
+| 📅 **Timetable &amp; Rooms**<br/>Schedules and room allocation | 📝 **Attendance &amp; Grading**<br/>Mark, grade, audit &amp; unlock | 🔐 **Encryption &amp; Backups**<br/>Encrypted snapshots, one-click trigger |
 | 🛡️ **Granular RBAC**<br/>Four roles, strict permissions | 🐳 **Docker Ready**<br/>`docker compose up` and go | 📱 **Fully Responsive**<br/>Works on any screen size |
 
 ---
@@ -95,16 +95,16 @@ flowchart TB
     subgraph ClientLayer ["💻 Presentation Layer (Vite SPA)"]
         UI["⚛️ React 18 + TypeScript UI"]:::client
         TW["🎨 Tailwind CSS Design System"]:::client
-        STATE["🔄 Client State & API Services"]:::client
+        STATE["🔄 Client State and API Services"]:::client
     end
 
-    subgraph ServerLayer ["⚙️ Application & Security Layer (Node.js)"]
+    subgraph ServerLayer ["⚙️ Application and Security Layer (Node.js)"]
         GATEWAY["🌐 REST API Gateway"]:::api
-        AUTH["🔐 Auth & RBAC Guard"]:::sec
+        AUTH["🔐 Auth and RBAC Guard"]:::sec
         CRYPTO["🔑 Encryption Engine"]:::sec
     end
 
-    subgraph DataLayer ["🗄️ Persistence & Disaster Recovery"]
+    subgraph DataLayer ["🗄️ Persistence and Disaster Recovery"]
         SQLITE[("🪶 SQLite Database")]:::db
         LFS["📦 Git LFS Asset Store"]:::db
         BACKUP["☁️ Encrypted Offsite Backup"]:::db
@@ -119,7 +119,7 @@ flowchart TB
     SQLITE -.->|"Scheduled Snapshot"| BACKUP
 ```
 
-### 2. Request & Data Lifecycle
+### 2. Request &amp; Data Lifecycle
 
 ```mermaid
 sequenceDiagram
@@ -132,11 +132,11 @@ sequenceDiagram
 
     User->>SPA: Trigger action (e.g. enroll student)
     SPA->>API: POST /api/students (Bearer token + payload)
-    API->>API: Verify role (RBAC) & sanitize input
+    API->>API: Verify role (RBAC) and sanitize input
     API->>DB: Execute encrypted transaction (ACID)
     DB-->>API: Commit confirmation + row ID
     API-->>SPA: 200 OK (updated JSON)
-    SPA-->>User: Toast notification & table refresh
+    SPA-->>User: Toast notification and table refresh
     Note over DB,Vault: Scheduled background cron
     DB->>Vault: Push encrypted snapshot (.sqlite.enc)
 ```
@@ -150,12 +150,12 @@ CampusOS enforces strict Role-Based Access Control across every core module:
 
 | System Module | 🛡️ Super Admin | 👩‍💼 Office Staff | 👨‍🏫 Faculty | 👨‍🎓 Student / Parent | Readiness |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **📊 Analytics Dashboard** | ✅ Full Access | ✅ View & Export | 👀 View Assigned | ❌ Restricted | ![100%](https://img.shields.io/badge/100%25-10b981?style=flat-square) |
-| **👨‍🎓 Student Enrollment & Profiles** | ✅ CRUD + Archive | ✅ Create & Edit | 👀 View Roster | 👀 Own Profile | ![100%](https://img.shields.io/badge/100%25-10b981?style=flat-square) |
-| **👩‍🏫 Staff & HR Directory** | ✅ Full Access | 👀 View Directory | 👀 Department Only | ❌ Restricted | ![100%](https://img.shields.io/badge/100%25-10b981?style=flat-square) |
-| **📅 Timetable & Room Allocation** | ✅ Full Override | ✅ Manage Schedules | ✅ View & Request | 👀 View Schedule | ![95%](https://img.shields.io/badge/95%25-eab308?style=flat-square) |
-| **📝 Attendance & Grading** | ✅ Audit & Unlock | 👀 Generate Reports | ✅ Mark & Grade | 👀 View Summary | ![95%](https://img.shields.io/badge/95%25-eab308?style=flat-square) |
-| **🔐 Encryption & Offsite Backups** | ✅ Full Control | ❌ Restricted | ❌ Restricted | ❌ Restricted | ![100%](https://img.shields.io/badge/100%25-10b981?style=flat-square) |
+| **📊 Analytics Dashboard** | ✅ Full Access | ✅ View &amp; Export | 👀 View Assigned | ❌ Restricted | ![100%](https://img.shields.io/badge/100%25-10b981?style=flat-square) |
+| **👨‍🎓 Student Enrollment &amp; Profiles** | ✅ CRUD + Archive | ✅ Create &amp; Edit | 👀 View Roster | 👀 Own Profile | ![100%](https://img.shields.io/badge/100%25-10b981?style=flat-square) |
+| **👩‍🏫 Staff &amp; HR Directory** | ✅ Full Access | 👀 View Directory | 👀 Department Only | ❌ Restricted | ![100%](https://img.shields.io/badge/100%25-10b981?style=flat-square) |
+| **📅 Timetable &amp; Room Allocation** | ✅ Full Override | ✅ Manage Schedules | ✅ View &amp; Request | 👀 View Schedule | ![95%](https://img.shields.io/badge/95%25-eab308?style=flat-square) |
+| **📝 Attendance &amp; Grading** | ✅ Audit &amp; Unlock | 👀 Generate Reports | ✅ Mark &amp; Grade | 👀 View Summary | ![95%](https://img.shields.io/badge/95%25-eab308?style=flat-square) |
+| **🔐 Encryption &amp; Offsite Backups** | ✅ Full Control | ❌ Restricted | ❌ Restricted | ❌ Restricted | ![100%](https://img.shields.io/badge/100%25-10b981?style=flat-square) |
 
 > **Legend:** ✅ can act •  👀 read-only  •  ❌ no access
 
@@ -165,23 +165,23 @@ CampusOS enforces strict Role-Based Access Control across every core module:
 
 | Domain | Technology | Version | Role |
 | :--- | :--- | :---: | :--- |
-| **Frontend** | ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) | `18.x` | Component-based declarative UI |
-| **Language** | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) | `5.x` | Static typing & contract enforcement |
-| **Build Tool** | ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) | `5.x` | Fast bundler & HMR dev server |
-| **Styling** | ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white) | `3.x` | Utility-first design tokens |
-| **Backend** | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) | `18+ LTS` | REST API, business logic, file I/O |
-| **Database** | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white) | `3.x` | Embedded relational SQL engine |
-| **Container** | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white) | `24+` | Reproducible, isolated deployment |
+| **Frontend** | ![React](https://img.shields.io/badge/React-20232A?style=flat-square&amp;logo=react&amp;logoColor=61DAFB) | `18.x` | Component-based declarative UI |
+| **Language** | ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&amp;logo=typescript&amp;logoColor=white) | `5.x` | Static typing &amp; contract enforcement |
+| **Build Tool** | ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&amp;logo=vite&amp;logoColor=white) | `5.x` | Fast bundler &amp; HMR dev server |
+| **Styling** | ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&amp;logo=tailwindcss&amp;logoColor=white) | `3.x` | Utility-first design tokens |
+| **Backend** | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&amp;logo=nodedotjs&amp;logoColor=white) | `18+ LTS` | REST API, business logic, file I/O |
+| **Database** | ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&amp;logo=sqlite&amp;logoColor=white) | `3.x` | Embedded relational SQL engine |
+| **Container** | ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&amp;logo=docker&amp;logoColor=white) | `24+` | Reproducible, isolated deployment |
 
 ---
 
 <a id="quickstart"></a>
-## 🚀 Quick Start & Deployment
+## 🚀 Quick Start &amp; Deployment
 
 > [!IMPORTANT]
 > **Prerequisites:** **Node.js `>= 18`**, **Git**, and **Git LFS** must be installed before cloning.
 
-### ⚡ Step 1: Clone & Initialize
+### ⚡ Step 1: Clone &amp; Initialize
 
 ```bash
 # Clone the repository
@@ -201,7 +201,7 @@ Copy the sample file, then edit the values:
 cp .env.example .env
 ```
 
-<details open>
+<details open="open">
 <summary><b>🔑 <code>.env</code> configuration template</b></summary>
 <br />
 
@@ -213,10 +213,10 @@ NODE_ENV=development
 PORT=5173
 API_PORT=3001
 
-# Database & Storage
+# Database and Storage
 DB_PATH=./server/data/campusos.sqlite
 
-# Security & Cryptography (use strong 256-bit keys in production)
+# Security and Cryptography (use strong 256-bit keys in production)
 ENCRYPTION_KEY=your_32_byte_hex_encryption_key_here
 JWT_SECRET=your_super_secret_jwt_signing_key_here
 
@@ -234,7 +234,7 @@ BACKUP_INTERVAL_CRON=0 2 * * *
 
 ### 🖥️ Step 3: Choose Your Launch Mode
 
-<details open>
+<details open="open">
 <summary><b>💻 Option A: Local Development (Hot Reload)</b></summary>
 <br />
 
@@ -279,7 +279,7 @@ npm run preview
 ---
 
 <a id="api"></a>
-## 📡 API & Database Specs
+## 📡 API &amp; Database Specs
 
 <details>
 <summary><b>🔌 Core REST API Endpoints</b></summary>
@@ -289,7 +289,7 @@ npm run preview
 | :---: | :--- | :---: | :--- |
 | `POST` | `/api/auth/login` | 🌍 Public | Authenticate credentials and issue a session token |
 | `GET` | `/api/dashboard/stats` | 🔑 Bearer | Aggregated campus KPIs and attendance metrics |
-| `GET` | `/api/students` | 🔑 Bearer | Paginated student list with search & filters |
+| `GET` | `/api/students` | 🔑 Bearer | Paginated student list with search &amp; filters |
 | `POST` | `/api/students` | 🛡️ Admin / Staff | Register a new student record |
 | `PUT` | `/api/students/:id` | 🛡️ Admin / Staff | Update a student profile or academic status |
 | `POST` | `/api/system/backup` | 👑 Super Admin | Trigger an immediate encrypted snapshot |
@@ -302,29 +302,29 @@ npm run preview
 
 ```text
 campusos/
-├── 📁 public/              # Static assets, favicons & manifest
+├── 📁 public/              # Static assets, favicons and manifest
 ├── 📁 server/              # Node.js backend
-│   ├── 📁 controllers/     # Request handlers & business logic
-│   ├── 📁 data/            # SQLite database & encrypted snapshots
-│   ├── 📁 middleware/      # Auth, RBAC & encryption guards
+│   ├── 📁 controllers/     # Request handlers and business logic
+│   ├── 📁 data/            # SQLite database and encrypted snapshots
+│   ├── 📁 middleware/      # Auth, RBAC and encryption guards
 │   └── 📄 index.ts         # Backend entry point
 ├── 📁 src/                 # React + TypeScript frontend
-│   ├── 📁 assets/          # Illustrations & media (Git LFS)
+│   ├── 📁 assets/          # Illustrations and media (Git LFS)
 │   ├── 📁 components/      # Reusable UI (Tables, Modals, Cards)
-│   ├── 📁 context/         # Auth & Theme providers
+│   ├── 📁 context/         # Auth and Theme providers
 │   ├── 📁 pages/           # Route views (Dashboard, Students, Settings)
 │   ├── 📁 services/        # API wrappers
 │   ├── 📁 types/           # Shared TypeScript interfaces
-│   ├── 📄 App.tsx          # Router & shell layout
+│   ├── 📄 App.tsx          # Router and shell layout
 │   └── 📄 main.tsx         # React DOM entry
 ├── 📄 .env.example         # Environment template
 ├── 📄 .gitattributes       # Git LFS rules
 ├── 📄 docker-compose.yml   # Container orchestration
 ├── 📄 Dockerfile           # Production image build
-├── 📄 package.json         # Dependencies & scripts
+├── 📄 package.json         # Dependencies and scripts
 ├── 📄 tailwind.config.js   # Design tokens
 ├── 📄 tsconfig.json        # TypeScript config
-├── 📄 vite.config.ts       # Vite & proxy config
+├── 📄 vite.config.ts       # Vite and proxy config
 └── 📄 README.md
 ```
 
@@ -335,16 +335,16 @@ campusos/
 <a id="roadmap"></a>
 ## 🗺️ Project Roadmap
 
-- [x] **Phase 1:** Core SPA with React, TypeScript & Tailwind CSS
-- [x] **Phase 2:** Embedded SQLite & Node.js REST API
-- [x] **Phase 3:** Role-Based Access Control & encrypted storage
-- [x] **Phase 4:** Docker containerization & automated offsite backups
+- [x] **Phase 1:** Core SPA with React, TypeScript &amp; Tailwind CSS
+- [x] **Phase 2:** Embedded SQLite &amp; Node.js REST API
+- [x] **Phase 3:** Role-Based Access Control &amp; encrypted storage
+- [x] **Phase 4:** Docker containerization &amp; automated offsite backups
 - [ ] **Phase 5:** Real-time parent/student notification portal (WebSockets / Push)
-- [ ] **Phase 6:** AI-assisted timetable conflict resolver & attendance analytics
+- [ ] **Phase 6:** AI-assisted timetable conflict resolver &amp; attendance analytics
 
 ---
 
-## 🔒 Security Policy & Best Practices
+## 🔒 Security Policy &amp; Best Practices
 
 > [!WARNING]
 > **Never commit `.env` files, production `.sqlite` databases, or private encryption keys.** Double-check your `.gitignore` before every push.
@@ -369,14 +369,14 @@ Contributions, issues, and feature requests are welcome!
 
 <div align="center">
 
-## 👨‍💻 Author & Maintainer
+## 👨‍💻 Author &amp; Maintainer
 
 <a href="https://github.com/Adamnazeri">
   <img src="https://github.com/Adamnazeri.png?size=180" width="90" height="90" alt="Adam Nazeri" />
 </a>
 
 ### **Adam Nazeri**
-*Software Developer & System Integrator*
+*Software Developer &amp; System Integrator*
 
 <a href="https://github.com/Adamnazeri"><img src="https://img.shields.io/badge/GitHub-@Adamnazeri-181717?style=for-the-badge&amp;logo=github" alt="GitHub" /></a>
 <a href="https://github.com/Adamnazeri/campusos"><img src="https://img.shields.io/badge/Repository-CampusOS-2563eb?style=for-the-badge&amp;logo=git&amp;logoColor=white" alt="Repo" /></a>
@@ -386,6 +386,6 @@ Contributions, issues, and feature requests are welcome!
 **⭐ If CampusOS helps your institution or inspires your workflow, give it a star! ⭐**
 
 <!-- ANIMATED FOOTER -->
-<img src="https://capsule-render.vercel.app/api?type=venom&amp;color=0:0f172a,50:1e3a8a,100:2563eb&amp;height=110&amp;section=footer" width="100%" alt="Footer Wave" />
+<img src="docs/footer.svg" width="100%" alt="Footer wave" />
 
 </div>
